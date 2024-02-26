@@ -1,0 +1,7 @@
+{
+    "Lua.diagnostics.globals": [
+        "script",
+        "defines",
+        "global",
+    ]
+}

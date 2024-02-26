@@ -1,0 +1,15 @@
+{
+    "name": "ACG-Fish-Genetics",
+    "version": "0.0.01",
+    "factorio_version": "1.1",
+    "date": "2024-02-26",
+    "title": "Fish Genetics",
+    "author": "AstaZora",
+    "homepage": "",
+    "description": "An optional mod to enhance the fish breeding mechanics of Aquaculture. Adds a new building, the Fish Genetics Lab, which allows you to breed fish with specific traits.",
+    "dependencies": [
+        "base >= 1.0.0",
+        "AB-Breathe-Easy-Arboretum >= 0.0.1",
+        "AC-Aquaculture >= 0.0.1"
+      ]
+}
