@@ -88,17 +88,6 @@ local function createModuleItem(fishType, traits, tier)
     for effect, _ in pairs(effects) do
         effects[effect] = effects[effect] * tier
     end
-    log("Calculated effects for module " .. moduleName .. ":")
-    for effect, value in pairs(effects) do
-        log(effect .. ": " .. value)
-    end
-
-    local limitations = {
-        "ac-breed-" .. fishType,
-        "ac-breed-" .. fishType .. "-egg",
-        "ac-process-" .. fishType .. "-eggs-for-fish"
-    }
-
     return {
         type = "module",
         name = moduleName,
@@ -110,7 +99,6 @@ local function createModuleItem(fishType, traits, tier)
             speed = effects.speed > 0 and {bonus = effects.speed} or nil,
             productivity = effects.productivity > 0 and {bonus = effects.productivity} or nil,
         },
-        limitations = limitations,
         limitation_message_key = "Only-allowed-with-" .. fishType .. "-recipes",
         subgroup = "module",
         order = "a",
