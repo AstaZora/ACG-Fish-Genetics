@@ -3,5 +3,22 @@
         "script",
         "defines",
         "global",
-    ]
+    ],
+    "factorio.versions": [
+        {
+            "name": "factorio 1.1.94",
+            "factorioPath": "c:\\Users\\tas_k\\Desktop\\Factorio_1.1.76\\bin\\x64\\factorio.exe",
+            "active": true
+        }
+    ],
+    "Lua.workspace.library": [
+        "C:\\Users\\tas_k\\Desktop\\Factorio_1.1.76\\data\\core\\lualib",
+        "C:\\Users\\tas_k\\Desktop\\Factorio_1.1.76\\data\\core\\mod-gui",
+        "C:\\Users\\tas_k\\Desktop\\Factorio_1.1.76\\data\\base\\prototypes\\entity",
+        "c:\\Users\\tas_k\\Desktop\\Factorio_1.1.76\\data"
+    ],
+    "Lua.workspace.userThirdParty": [
+        "c:\\Users\\tas_k\\AppData\\Roaming\\Code\\User\\workspaceStorage\\7af024d28173b19141624c3984659a52\\justarandomgeek.factoriomod-debug\\sumneko-3rd"
+    ],
+    "Lua.workspace.checkThirdParty": "ApplyInMemory"
 }

@@ -19,4 +19,10 @@ data:extend({
         type = "recipe-category",
         name = "genetics",
     },
+	{
+		type = "item-subgroup",
+		name = "fish-breeding-modules",
+		group = "acg-fish-genetics",
+		order = "g",
+	},
 })
