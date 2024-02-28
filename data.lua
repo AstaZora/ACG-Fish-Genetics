@@ -93,7 +93,7 @@ local function createModuleItem(fishType, traits, tier)
         name = moduleName,
         icon = "__base__/graphics/icons/fish.png",
         icon_size = 64,
-        category = "speed",
+        category = "productivity",
         tier = tier,
         effect = {
             speed = effects.speed > 0 and {bonus = effects.speed} or nil,

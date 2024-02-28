@@ -10,7 +10,7 @@ local FISH_ICON = "__base__/graphics/icons/fish.png"
 local GENETICS = "acg-genetics"
 
 -- Generic function to create a recipe
-local function createRecipe(recipeType, recipeName, category, energyRequired, ingredients, results, enabled, icon, subgroup, order)
+local function createRecipe(recipeType, recipeName, category, energyRequired, ingredients, results, icon, subgroup, order)
     return {
         type = recipeType,
         name = recipeName,
@@ -18,7 +18,7 @@ local function createRecipe(recipeType, recipeName, category, energyRequired, in
         energy_required = energyRequired,
         ingredients = ingredients,
         results = results,
-        enabled = enabled,
+        enabled = true,
         icon = icon,
         icon_size = 64,
         subgroup = subgroup,
@@ -32,7 +32,7 @@ local function createGeneticSampleRecipe(fishType)
     local ingredients = {{type="item", name=fishType .. "-egg", amount=100}}
     local results = {{type="item", name=fishType .. "-genetic-sample", amount=1, probability=0.01}}
     
-    return createRecipe("recipe", recipeName, CHEMISTRY, 30, ingredients, results, true, FISH_ICON, GENETICS, "a")
+    return createRecipe("recipe", recipeName, CHEMISTRY, 30, ingredients, results, FISH_ICON, GENETICS, "a")
 end
 
 local function createTraitIdentificationRecipe(fishType, trait)
@@ -40,7 +40,25 @@ local function createTraitIdentificationRecipe(fishType, trait)
     local ingredients = {{type="item", name=fishType .. "-genetic-sample", amount=1}}
     local results = {{type="item", name=fishType .. "-" .. trait .. "-trait", amount=1, probability=0.33}}
     
-    return createRecipe("recipe", recipeName, CHEMISTRY, 60, ingredients, results, true, FISH_ICON, GENETICS, "b")
+    return createRecipe("recipe", recipeName, CHEMISTRY, 60, ingredients, results, FISH_ICON, GENETICS, "b")
+end
+
+local function createModuleRecipe(fishType, traits, tier)
+    local recipeName = fishType .. "-" .. table.concat(traits, "") .. "-module-tier-" .. tostring(tier)
+    local ingredients = {}
+    local previousModule = fishType .. "-" .. table.concat(traits, "") .. "-module-tier-" .. tostring(tier - 1)
+    if tier == 1 then
+        for _, trait in ipairs(traits) do
+            table.insert(ingredients, {type="item", name=fishType .. "-" .. trait .. "-trait", amount=3})
+        end
+    else
+        table.insert(ingredients, {type="item", name=previousModule, amount=2})
+        table.insert(ingredients, {type="item", name=fishType .. "-" .. traits[1] .. "-trait", amount=3})
+        table.insert(ingredients, {type="item", name=fishType .. "-" .. traits[2] .. "-trait", amount=3})
+    end
+    local results = {{type="item", name=recipeName, amount=1}}
+    
+    return createRecipe("recipe", recipeName, CHEMISTRY, 120, ingredients, results, FISH_ICON, GENETICS, "c")
 end
 
 -- Generate recipes
@@ -50,6 +68,12 @@ for _, fishType in ipairs(fishTypes) do
     table.insert(recipes, createTraitIdentificationRecipe(fishType, "g"))
     table.insert(recipes, createTraitIdentificationRecipe(fishType, "y"))
     table.insert(recipes, createTraitIdentificationRecipe(fishType, "b"))
+    
+    for tier = 1, 3 do
+        table.insert(recipes, createModuleRecipe(fishType, {"g", "y"}, tier))
+        table.insert(recipes, createModuleRecipe(fishType, {"g", "b"}, tier))
+        table.insert(recipes, createModuleRecipe(fishType, {"y", "b"}, tier))
+    end
 end
 
 -- Extend data
