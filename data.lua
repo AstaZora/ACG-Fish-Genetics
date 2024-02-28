@@ -99,6 +99,7 @@ local function createModuleItem(fishType, traits, tier)
             speed = effects.speed > 0 and {bonus = effects.speed} or nil,
             productivity = effects.productivity > 0 and {bonus = effects.productivity} or nil,
         },
+        limitations = {},
         limitation_message_key = "Only-allowed-with-" .. fishType .. "-recipes",
         subgroup = "module",
         order = "a",
