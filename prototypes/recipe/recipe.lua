@@ -30,7 +30,7 @@ end
 local function createGeneticSampleRecipe(fishType)
     local recipeName = "produce-genetic-sample-" .. fishType
     local ingredients = {{type="item", name=fishType .. "-egg", amount=100}}
-    local results = {{type="item", name=fishType .. "-genetic-sample", amount=1, probability=0.01}}
+    local results = {{type="item", name=fishType .. "-genetic-sample", amount=1, probability=0.1}}
     
     return createRecipe("recipe", recipeName, CHEMISTRY, 30, ingredients, results, FISH_ICON, GENETICS, "a")
 end
@@ -52,9 +52,10 @@ local function createModuleRecipe(fishType, traits, tier)
             table.insert(ingredients, {type="item", name=fishType .. "-" .. trait .. "-trait", amount=3})
         end
     else
-        table.insert(ingredients, {type="item", name=previousModule, amount=2})
-        table.insert(ingredients, {type="item", name=fishType .. "-" .. traits[1] .. "-trait", amount=3})
-        table.insert(ingredients, {type="item", name=fishType .. "-" .. traits[2] .. "-trait", amount=3})
+        for _, trait in ipairs(traits) do
+            table.insert(ingredients, {type="item", name=fishType .. "-" .. trait .. "-trait", amount=3})
+        end
+        table.insert(ingredients, {type="item", name=previousModule, amount=1})
     end
     local results = {{type="item", name=recipeName, amount=1}}
     
@@ -70,6 +71,9 @@ for _, fishType in ipairs(fishTypes) do
     table.insert(recipes, createTraitIdentificationRecipe(fishType, "b"))
     
     for tier = 1, 3 do
+        table.insert(recipes, createModuleRecipe(fishType, {"g"}, tier))
+        table.insert(recipes, createModuleRecipe(fishType, {"y"}, tier))
+        table.insert(recipes, createModuleRecipe(fishType, {"b"}, tier))
         table.insert(recipes, createModuleRecipe(fishType, {"g", "y"}, tier))
         table.insert(recipes, createModuleRecipe(fishType, {"g", "b"}, tier))
         table.insert(recipes, createModuleRecipe(fishType, {"y", "b"}, tier))
