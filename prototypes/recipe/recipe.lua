@@ -1,7 +1,13 @@
 local fishTypes = {
     "glowfin-trenchers",
     "mukmoux",
-    "silverscale-glider"
+    "silverscale-glider",
+    "neon-nocturne",
+    "silent-drifter",
+    "stream-sifter",
+    "spiral-shellfish",
+    "twilight-tetra",
+    "starfin-darters"
 }
 
 -- Constants
