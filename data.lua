@@ -8,11 +8,16 @@ require("prototypes.categories.fuel-category")
 require("prototypes.entity.resources")
 require("prototypes.entity.autoplace-controls")
 
--- List of fish types
 local fishTypes = {
     "glowfin-trenchers",
     "mukmoux",
     "silverscale-glider",
+    "neon-nocturne",
+    "silent-drifter",
+    "stream-sifter",
+    "spiral-shellfish",
+    "twilight-tetra",
+    "starfin-darters"
 }
 
 -- Function to create genetic items for a fish type
@@ -54,7 +59,6 @@ for _, fishType in ipairs(fishTypes) do
 end
 
 -- Define the fish types and traits
-local fishTypes = {"glowfin-trenchers", "mukmoux", "silverscale-glider"}
 local moduleTraits = {"g", "y", "b", "gy", "gb", "yb"}
 local tierLevels = {1, 2, 3}
 

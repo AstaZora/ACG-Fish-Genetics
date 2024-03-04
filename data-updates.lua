@@ -1,8 +1,14 @@
 -- Predefined list of fish types
 local fishTypes = {
     "glowfin-trenchers",
-    "mukmoux", -- Non-hyphenated example
+    "mukmoux",
     "silverscale-glider",
+    "neon-nocturne",
+    "silent-drifter",
+    "stream-sifter",
+    "spiral-shellfish",
+    "twilight-tetra",
+    "starfin-darters"
 }
 
 -- Utility function to determine if a string starts with another string
