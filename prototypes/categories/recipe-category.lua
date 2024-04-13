@@ -25,4 +25,40 @@ data:extend({
 		group = "acg-fish-genetics",
 		order = "g",
 	},
+	{
+		type = "module-category",
+		name = "glowfin-trenchers-genetics",
+	},
+	{
+		type = "module-category",
+		name = "mukmoux-genetics",
+	},
+	{
+		type = "module-category",
+		name = "silverscale-glider-genetics",
+	},
+	{
+		type = "module-category",
+		name = "neon-nocturne-genetics",
+	},
+	{
+		type = "module-category",
+		name = "silent-drifter-genetics",
+	},
+	{
+		type = "module-category",
+		name = "stream-sifter-genetics",
+	},
+	{
+		type = "module-category",
+		name = "spiral-shellfish-genetics",
+	},
+	{
+		type = "module-category",
+		name = "twilight-tetra-genetics",
+	},
+	{
+		type = "module-category",
+		name = "starfin-darters-genetics",
+	},
 })

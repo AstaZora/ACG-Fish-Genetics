@@ -20,6 +20,54 @@ local fishTypes = {
     "starfin-darters"
 }
 
+local fishTypeLimitations = {
+    ["glowfin-trenchers"] = {
+        "ac-breed-glowfin-trenchers",
+        "ac-process-glowfin-trenchers-eggs-for-fish",
+        "ac-breed-glowfin-trenchers-egg",
+    },
+    ["mukmoux"] = {
+        "ac-breed-mukmoux",
+        "ac-process-mukmoux-eggs-for-fish",
+        "ac-breed-mukmoux-egg",
+    },
+    ["silverscale-glider"] = {
+        "ac-breed-silverscale-glider",
+        "ac-process-silverscale-glider-eggs-for-fish",
+        "ac-breed-silverscale-glider-egg",
+    },
+    ["neon-nocturne"] = {
+        "ac-breed-neon-nocturne",
+        "ac-process-neon-nocturne-eggs-for-fish",
+        "ac-breed-neon-nocturne-egg",
+    },
+    ["silent-drifter"] = {
+        "ac-breed-silent-drifter",
+        "ac-process-silent-drifter-eggs-for-fish",
+        "ac-breed-silent-drifter-egg",
+    },
+    ["stream-sifter"] = {
+        "ac-breed-stream-sifter",
+        "ac-process-stream-sifter-eggs-for-fish",
+        "ac-breed-stream-sifter-egg",
+    },
+    ["spiral-shellfish"] = {
+        "ac-breed-spiral-shellfish",
+        "ac-process-spiral-shellfish-eggs-for-fish",
+        "ac-breed-spiral-shellfish-egg",
+    },
+    ["twilight-tetra"] = {
+        "ac-breed-twilight-tetra",
+        "ac-process-twilight-tetra-eggs-for-fish",
+        "ac-breed-twilight-tetra-egg",
+    },
+    ["starfin-darters"] = {
+        "ac-breed-starfin-darters",
+        "ac-process-starfin-darters-eggs-for-fish",
+        "ac-breed-starfin-darters-egg",
+    },
+}
+
 -- Function to create genetic items for a fish type
 local function createGeneticItemsForFishType(fishType)
     local geneticItems = {}
@@ -97,13 +145,13 @@ local function createModuleItem(fishType, traits, tier)
         name = moduleName,
         icon = "__base__/graphics/icons/fish.png",
         icon_size = 64,
-        category = "productivity",
+        category = fishType .. "-genetics",
         tier = tier,
         effect = {
             speed = effects.speed > 0 and {bonus = effects.speed} or nil,
             productivity = effects.productivity > 0 and {bonus = effects.productivity} or nil,
         },
-        limitations = {},
+        limitations = fishTypeLimitations[fishType],
         limitation_message_key = "Only-allowed-with-" .. fishType .. "-recipes",
         subgroup = "module",
         order = "a",
