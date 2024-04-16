@@ -30,6 +30,16 @@ for _, fishType in ipairs(fishTypes) do
             --print("Applied limitation: ac-breed-" .. fishType .. " to module: " .. moduleName)
             table.insert(module.limitation, "ac-process-" .. fishType .. "-eggs-for-fish")
             --print("Applied limitation: ac-process-" .. fishType .. "-eggs-for-fish to module: " .. moduleName)
+            table.insert(module.limitation, "ac-breed-" .. fishType .. "-egg")
+            --print("Applied limitation: ac-breed-" .. fishType .. "-egg to module: " .. moduleName)
+            table.insert(module.limitation, "produce-genetic-sample-" .. fishType)
+            --print("Applied limitation: produce-genetic-sample-" .. fishType .. " to module: " .. moduleName)
+            table.insert(module.limitation, "identify-b-trait-" .. fishType)
+            --print("Applied limitation: identify-b-trait-" .. fishType .. " to module: " .. moduleName)
+            table.insert(module.limitation, "identify-g-trait-" .. fishType)
+            --print("Applied limitation: identify-g-trait-" .. fishType .. " to module: " .. moduleName)
+            table.insert(module.limitation, "identify-y-trait-" .. fishType)
+            --print("Applied limitation: identify-y-trait-" .. fishType .. " to module: " .. moduleName)
         else
             --print("Skipped module:", moduleName, "for fish type:", fishType)
         end

@@ -65,7 +65,7 @@ local fishTypeLimitations = {
         "ac-breed-starfin-darters",
         "ac-process-starfin-darters-eggs-for-fish",
         "ac-breed-starfin-darters-egg",
-    },
+    },  
 }
 
 -- Function to create genetic items for a fish type

@@ -1,5 +1,4 @@
-
---[[local function deepcopy(orig) -- Since you don't have access to the util table
+local function deepcopy(orig) 
     local orig_type = type(orig)
     local copy
     if orig_type == 'table' then
@@ -8,7 +7,7 @@
             copy[deepcopy(orig_key)] = deepcopy(orig_value)
         end
         setmetatable(copy, deepcopy(getmetatable(orig)))
-    else -- number, string, boolean, etc
+    else 
         copy = orig
     end
     return copy
@@ -129,4 +128,7 @@ local function createOilRefinery(name, category)
     -- Adjust animation or any other necessary properties...
     return base
 end
-]]
+
+data:extend({
+createChemical("genetics-plant", "acg-genetics")
+})

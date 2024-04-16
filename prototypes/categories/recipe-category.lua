@@ -20,6 +20,10 @@ data:extend({
         name = "genetics",
     },
 	{
+		type = "recipe-category",
+		name = "acg-genetics",
+	},
+	{
 		type = "item-subgroup",
 		name = "fish-breeding-modules",
 		group = "acg-fish-genetics",

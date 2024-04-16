@@ -88,3 +88,26 @@ end
 
 -- Extend data
 data:extend(recipes)
+
+
+data:extend({
+    {
+        type = "recipe",
+        name = "genetics-plant",
+        category = "crafting",
+        energy_required = 5,
+        ingredients = {
+            {"iron-plate", 5},
+            {"bronze-plate", 5},
+            {"fiberboard-circuitry", 5}
+        },
+        results = {
+            {"genetics-plant", 1}
+        },
+        enabled = true,
+        icon = "__base__/graphics/icons/chemical-plant.png",
+        icon_size = 64,
+        subgroup = "acg-genetics",
+        order = "a[genetics-plant]"
+    }
+})
